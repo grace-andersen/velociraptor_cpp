@@ -3,11 +3,9 @@
 
 
 
-int main() 
+int main( int argc, char ** argv ) 
 {
-  Dice d_20(20);
-  for( int i = 0; i < 20; i++ )
-    cout << d_20.roll() << " ";
-  cout << endl;
-  return 0;
+  	Dice d_20(stol(argv[1],nullptr));
+  	cout << d_20.roll() << endl;
+  	return 0;
 }

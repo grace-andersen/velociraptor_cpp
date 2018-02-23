@@ -2,6 +2,7 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>
 #include <chrono>
+#include <random>
 
 using namespace std;
 
