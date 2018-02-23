@@ -3,9 +3,13 @@
 
 
 
-int main( int argc, char ** argv ) 
+int main() 
 {
-  	Dice d_20(stol(argv[1],nullptr));
-  	cout << d_20.roll() << endl;
+	int num_sides;
+
+	cout << "Enter the number of sides for your dice: ";
+	cin >> num_sides;
+  	Dice d_20( num_sides );
+  	cout << "You rolled a: " << d_20.roll() << endl;
   	return 0;
 }
