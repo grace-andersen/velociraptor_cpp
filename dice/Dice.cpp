@@ -1,6 +1,6 @@
 #include "Dice.h"
 
-//
+//private function that deals with random number generation
 int Dice::get_random_range()
 {
     random_device rd;
@@ -10,14 +10,15 @@ int Dice::get_random_range()
 }
 
 
-
+//public function that calls whatever random method is implemented
 int Dice::roll()
 {
     return get_random_range();
 }
 
 
-
+//roll num_dice number of dice and keep either the highest or lowest
+//depending on whether an 'l' or an 'h' is passed in. 
 int Dice::roll_n_k1(  int num_dice, char high_or_low )
 {
     int extreme = 0;
@@ -48,14 +49,14 @@ int Dice::roll_n_k1(  int num_dice, char high_or_low )
 }
 
 
-
+//return the private value containing the initialized number of sides
 int Dice::number_sides()
 {
     return num_sides;
 }
 
 
-
+//rolls n dice, returns the sum of the values
 int Dice::sum_roll_n( int num_dice )
 {
     int sum = 0;
