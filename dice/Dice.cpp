@@ -1,6 +1,6 @@
 #include "Dice.h"
 
-
+//comment
 int Dice::get_random_range()
 {
   return rand() % num_sides + 1;
