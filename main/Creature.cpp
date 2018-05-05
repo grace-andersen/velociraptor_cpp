@@ -26,7 +26,8 @@ Creature::~Creature()
 
 
 
-int Creature::optimal_turn( Attack first_attack, Attack second_attack, Attack third_attack )
+int Creature::optimal_turn( Attack first_attack, Attack second_attack, 
+	Attack third_attack )
 {
 	return 0;
 }

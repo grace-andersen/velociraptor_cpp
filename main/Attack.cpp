@@ -5,8 +5,9 @@
 The constructor sets all the values and has defaults set in the 
 h file
 ******************************************************************/
-Attack::Attack( bool get_advantage, bool get_disadvantage, int get_dmg_dice_num, 
-	int get_dmg_dice_sides, int get_input_dmg_mod, int get_input_attack_mod, string get_message  )
+Attack::Attack( bool get_advantage, bool get_disadvantage, 
+	int get_dmg_dice_num, int get_dmg_dice_sides, int get_input_dmg_mod, 
+	int get_input_attack_mod, string get_message  )
 {
 	has_advantage    = get_advantage;
 	has_disadvantage = get_disadvantage;
@@ -117,7 +118,8 @@ void Attack::get_stats( ofstream out )
 		out << "The creature has disadvantage" << endl;
 
 	out << "The attack modifier is +" << attack_mod << endl;
-	out << "The damage is " << dmg_dice_num << "d" << dmg_dice_sides << "+" << dmg_mod << endl;
+	out << "The damage is " << dmg_dice_num << "d" << dmg_dice_sides << 
+		"+" << dmg_mod << endl;
 	out <<  message << endl;
 
 	return;

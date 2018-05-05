@@ -6,8 +6,9 @@ class Attack
 
 	public:
 		Attack( bool get_advantage = false, bool get_disadvantage = false, 
-			int get_dmg_dice_num = 1, int get_dmg_dice_sides = 6, int get_input_dmg_mod = 4,
-			int get_input_attack_mod = 2, string get_message = ""  );		
+			int get_dmg_dice_num = 1, int get_dmg_dice_sides = 6, 
+			int get_input_dmg_mod = 4,int get_input_attack_mod = 2, 
+			string get_message = ""  );		
 		~Attack();
 		Attack( Attack &the_attack );
 		//functions to set variables
