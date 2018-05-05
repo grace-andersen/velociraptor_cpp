@@ -104,15 +104,16 @@ char Creature::is_hit( int ac, Attack the_attack )
 }
 
 
-void Creature::output_condition( Attack attack, int hits )
+/******************************************************************
+outputs condition message for each time the creature is hit
+******************************************************************/
+void Creature::output_condition( Attack the_attack, int hits )
 {
-
+	for( int i = 0; i < hits; i++ )
+	{
+		cout << the_attack.get_message() << endl;
+	}
 	return;
 }
 
-void turn(Creature monster, int quantity_monsters )
-{
-
-	return;
-}
 

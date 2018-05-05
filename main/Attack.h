@@ -28,6 +28,7 @@ class Attack
 		int dice_sides();
 		int get_dmg_mod();
 		int get_attack_mod();
+		string get_message();
 
 		//overload some ops
 		Attack &operator=( const Attack &the_attack );

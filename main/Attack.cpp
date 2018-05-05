@@ -124,6 +124,13 @@ int Attack::get_attack_mod()
 	return attack_mod;
 }
 
+
+string Attack::get_message()
+{
+	return message;
+}
+
+
 Attack &Attack::operator=( const Attack &the_attack )
 {
 
