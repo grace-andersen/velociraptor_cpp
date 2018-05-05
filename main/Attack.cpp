@@ -1,6 +1,10 @@
 #include "Attack.h"
 
-//Attack Functions
+
+/******************************************************************
+The constructor sets all the values and has defaults set in the 
+h file
+******************************************************************/
 Attack::Attack( bool get_advantage, bool get_disadvantage, int get_dmg_dice_num, 
 	int get_dmg_dice_sides, int get_input_dmg_mod, int get_input_attack_mod, string get_message  )
 {
@@ -14,11 +18,19 @@ Attack::Attack( bool get_advantage, bool get_disadvantage, int get_dmg_dice_num,
 	return;
 }
 
+
+/******************************************************************
+The destructor doesn't need to do anything.
+******************************************************************/
 Attack::~Attack()
 {
 	return;
 }
 
+
+/******************************************************************
+Copy Constructor! it copies things 
+******************************************************************/
 Attack::Attack( Attack &the_attack )
 {
 	has_advantage    = the_attack.has_advantage;
@@ -32,7 +44,9 @@ Attack::Attack( Attack &the_attack )
 }
 
 
-
+/******************************************************************
+Sets the has_advantage variable to true
+******************************************************************/
 void Attack::set_advantage()
 {
 	has_advantage = true;
@@ -40,7 +54,9 @@ void Attack::set_advantage()
 }
 
 
-
+/******************************************************************
+Sets the has_disadvantage variable to true
+******************************************************************/
 void Attack::set_disadvantage()
 {
 	has_disadvantage = true;
@@ -48,7 +64,9 @@ void Attack::set_disadvantage()
 }
 
 
-
+/******************************************************************
+Sets the number of damage dice
+******************************************************************/
 void Attack::set_number_dice( int num_dice )
 {
 	dmg_dice_num = num_dice;
@@ -56,7 +74,9 @@ void Attack::set_number_dice( int num_dice )
 }
 
 
-
+/******************************************************************
+Sets the damage dice sides
+******************************************************************/
 void Attack::set_dice_sides( int dice_sides )
 {
 	dmg_dice_sides = dice_sides;
@@ -64,7 +84,9 @@ void Attack::set_dice_sides( int dice_sides )
 }
 
 
-
+/******************************************************************
+Sets the damage modifier
+******************************************************************/
 void Attack::set_dmg_mod( int mod )
 {
 	dmg_mod = mod;
@@ -72,7 +94,9 @@ void Attack::set_dmg_mod( int mod )
 }
 
 
-
+/******************************************************************
+Sets the attack modifier
+******************************************************************/
 void Attack::set_attack_mod( int mod )
 {
 	attack_mod = mod;
@@ -80,7 +104,9 @@ void Attack::set_attack_mod( int mod )
 }
 
 
-
+/******************************************************************
+Outputs the stats to the screen or a file
+******************************************************************/
 void Attack::get_stats( ofstream out )
 {
 	if( (has_advantage & has_advantage) | !has_advantage | !has_disadvantage )
@@ -98,39 +124,72 @@ void Attack::get_stats( ofstream out )
 }
 
 
-
+/******************************************************************
+Returns the value in has_advantage
+******************************************************************/
 bool Attack::advantage()
 {
 	return has_advantage;
 }
+
+
+/******************************************************************
+Returns the value in has_disadvantage
+******************************************************************/
 bool Attack::disadvantage()
 {
 	return has_disadvantage;
 }
+
+
+/******************************************************************
+Returns the number of damage dice
+******************************************************************/
 int Attack::number_dice()
 {
 	return dmg_dice_num;
 }
+
+
+/******************************************************************
+Return the number of sides for the damage dice
+******************************************************************/
 int Attack::dice_sides()
 {
 	return dmg_dice_sides;
 }
+
+
+/******************************************************************
+Returns the damage modifier
+******************************************************************/
 int Attack::get_dmg_mod()
 {
 	return dmg_mod;
 }
+
+
+/******************************************************************
+Returns the attack modifier
+******************************************************************/
 int Attack::get_attack_mod()
 {
 	return attack_mod;
 }
 
 
+/******************************************************************
+Returns the message
+******************************************************************/
 string Attack::get_message()
 {
 	return message;
 }
 
 
+/******************************************************************
+Allows you to set attacks equal to each other
+******************************************************************/
 Attack &Attack::operator=( const Attack &the_attack )
 {
 
