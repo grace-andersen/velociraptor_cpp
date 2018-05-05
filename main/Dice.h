@@ -16,7 +16,10 @@ class Dice {
     {
         srand(time(NULL));
     }
-    ~Dice();
+    ~Dice()
+    {
+        return;
+    }
   
     //roll a single dice of num_sides sides 
     int roll();

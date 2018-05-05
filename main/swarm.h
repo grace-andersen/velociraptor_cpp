@@ -4,7 +4,7 @@
 Todo: 
 menu
 creature class
-attack method
+attack class
 crit damage function
 normal damage function
 hit calculation function
@@ -35,10 +35,10 @@ class Attack
 		//functions to get variables
 		bool advantage();
 		bool disadvantage();
-		int number_dice( int num_dice );
-		int dice_sides( int dice_sides );
-		int get_dmg_mod( int mod );
-		int get_attack_mod( int mod );
+		int number_dice();
+		int dice_sides();
+		int get_dmg_mod();
+		int get_attack_mod();
 
 		//overload some ops
 		Attack &operator=( const Attack &the_attack );
@@ -58,8 +58,6 @@ class Attack
 
 
 
-
-
 class Creature
 {
 
@@ -73,7 +71,7 @@ class Creature
 		
 		int hit_damage( Attack attack_type );
 		int crit_damage( Attack attack_type );
-		bool is_hit( int ac, int roll, int damage_mod, bool crit );
+		char is_hit( int ac, Attack the_attack );
 		void output_condition( Attack attack, int hits );
 
 		//contains all information for attacks
@@ -86,8 +84,6 @@ class Creature
 	
 };
 
-
-//returns ac and creature and advantage
 
 
 //calls functions to form turn 

@@ -110,19 +110,19 @@ bool Attack::disadvantage()
 {
 	return has_disadvantage;
 }
-int Attack::number_dice( int num_dice )
+int Attack::number_dice()
 {
 	return dmg_dice_num;
 }
-int Attack::dice_sides( int dice_sides )
+int Attack::dice_sides()
 {
 	return dmg_dice_sides;
 }
-int Attack::get_dmg_mod( int mod )
+int Attack::get_dmg_mod()
 {
 	return dmg_mod;
 }
-int Attack::get_attack_mod( int mod )
+int Attack::get_attack_mod()
 {
 	return attack_mod;
 }
@@ -172,24 +172,59 @@ int Creature::optimal_turn( Attack first_attack, Attack second_attack, Attack th
 //OTHER
 int Creature::hit_damage( Attack attack_type )
 {
+	//create dice 
+	Dice damage_dice( attack_type.dice_sides() );
+	int damage;
 
-	return 0;
+	//roll number_dice and sum them
+	for( int i = 0; i < attack_type.number_dice(); i++ )
+	{
+		damage += damage_dice.roll();
+	}
+	damage += attack_type.get_dmg_mod();
+
+	return damage;
 }
 
 
 
 int Creature::crit_damage( Attack attack_type )
 {
+	//create dice 
+	Dice damage_dice( attack_type.dice_sides() );
 
-	return 0;
+	//holds the damage dealt
+	int damage;
+
+	//roll number_dice and sum them
+	for( int i = 0; i < attack_type.number_dice(); i++ )
+	{
+		damage += damage_dice.roll() + damage_dice.roll();
+	}
+	damage += attack_type.get_dmg_mod();
+
+	return damage;
 }
 
 
 
-bool Creature::is_hit( int ac, int roll, int mod, bool crit )
+char Creature::is_hit( int ac, Attack the_attack )
 {
+	Dice d20( 20 );
+	int the_roll = d20.roll();
 
-	return 0;
+	if( the_roll == 20 )
+	{
+		return 'c';
+	}
+
+	//if the attack is greater than the armor class
+	if( ( the_roll + the_attack.get_attack_mod() ) > ac )
+	{
+		return 'h';
+	}
+
+	return 'm';
 }
 
 
