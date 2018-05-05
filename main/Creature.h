@@ -18,7 +18,7 @@ class Creature
 		void output_condition( Attack attack, int hits );
 
 		//contains all information for attacks
-		int optimal_turn( Attack first_attack, Attack second_attack, 
+		virtual int optimal_turn( Attack first_attack, Attack second_attack, 
 			Attack third_attack );
 
 	private: 
