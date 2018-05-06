@@ -83,17 +83,17 @@ char Creature::is_hit( int ac, Attack the_attack )
 	//if the attack is a crit
 	if( the_roll == 20 )
 	{
-		return 'c';
+		return crit;
 	}
 
 	//if the attack is greater than the armor class
 	if( ( the_roll + the_attack.get_attack_mod() ) > ac )
 	{
-		return 'h';
+		return hit;
 	}
 
 	//else the attack missed
-	return 'm';
+	return miss;
 }
 
 
@@ -109,4 +109,47 @@ void Creature::output_condition( Attack the_attack, int hits )
 	return;
 }
 
+
+char Creature::is_hit_advantage( int ac, Attack the_attack )
+{
+	Dice d20( 20 );
+	int the_roll = d20.roll_n_k1( 1, 'h' );
+
+	//if the attack is a crit
+	if( the_roll == 20 )
+	{
+		return crit;
+	}
+
+	//if the attack is greater than the armor class
+	if( ( the_roll + the_attack.get_attack_mod() ) > ac )
+	{
+		return hit;
+	}
+
+	//else the attack missed
+	return miss;
+}
+
+
+char Creature::is_hit_disadvantage( int ac, Attack the_attack )
+{
+	Dice d20( 20 );
+	int the_roll = d20.roll_n_k1( 1, 'l' );
+
+	//if the attack is a crit
+	if( the_roll == 20 )
+	{
+		return crit;
+	}
+
+	//if the attack is greater than the armor class
+	if( ( the_roll + the_attack.get_attack_mod() ) > ac )
+	{
+		return hit;
+	}
+
+	//else the attack missed
+	return miss;
+}
 
