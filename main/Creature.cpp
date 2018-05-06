@@ -5,7 +5,7 @@
 The constructor just defines the attacks of the creature
 ******************************************************************/
 Creature::Creature( string the_name, Attack in_first_attack, 
-	Attack in_second_attack, Attack in_third_attack)
+	Attack in_second_attack, Attack in_third_attack )
 {
 	name = the_name;
 	first_attack = in_first_attack;
@@ -22,14 +22,6 @@ The destructor doesn't need to do anything right now
 Creature::~Creature()
 {
 	return;
-}
-
-
-
-int Creature::optimal_turn( Attack first_attack, Attack second_attack, 
-	Attack third_attack )
-{
-	return 0;
 }
 
 
